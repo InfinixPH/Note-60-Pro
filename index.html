@@ -1,200 +1,209 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Infinix NOTE60Pro</title>
 
 <link href="https://db.onlinewebfonts.com/c/657bc16f9d9e1138aedc238e69ff1983?family=MoonTime" rel="stylesheet">
 
 <style>
+
 :root{
-  --accent:#ff6a00;
-  --accent2:#ff9b3d;
-  --card:#0c0c0c;
-  --border:#1d1d1d;
+--accent:#ff6a00;
+--accent2:#ff9b3d;
+--card:#0e0e0e;
+--border:#1e1e1e;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:#fff;
-  background:
-    radial-gradient(circle at 80% 20%, rgba(255,120,0,0.25), transparent 40%),
-    radial-gradient(circle at 20% 90%, rgba(255,80,0,0.2), transparent 40%),
-    #000;
-  overflow:auto;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+color:#fff;
+
+/* SOLAR GRADIENT BACKGROUND */
+background:
+radial-gradient(circle at 50% -20%, #ffb347 0%, #ff6a00 35%, #0d0d0d 70%),
+linear-gradient(180deg,#000,#0a0a0a);
+
+overflow:auto;
 }
 
-/* ===== HEADER (COMPACT, LEFT/RIGHT) ===== */
-header{
-  padding:16px 18px 10px;
+/* HERO SECTION */
+
+.hero{
+text-align:center;
+padding:30px 20px 10px;
 }
 
-.header-bar{
-  max-width:950px;
-  margin:0 auto;
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:14px;
+.hero img{
+width:220px;
+max-width:60%;
+margin:0 auto 10px;
+display:block;
 }
 
-.header-left{
-  display:flex;
-  flex-direction:column;
-  line-height:1;
+.brand{
+font-size:14px;
+opacity:.8;
+letter-spacing:2px;
 }
 
-.header-brand{
-  font-size:14px;
-  opacity:.75;
-  letter-spacing:1.4px;
+.product{
+font-size:34px;
+font-weight:900;
+margin-top:4px;
 }
 
-.header-product{
-  font-size:28px;
-  font-weight:900;
-  letter-spacing:.8px;
-  margin-top:4px;
+.tagline{
+font-family:'MoonTime',cursive;
+font-size:38px;
+color:var(--accent2);
+margin-top:6px;
 }
 
-.header-right{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  text-align:right;
-  line-height:1;
+.scroll-hint{
+font-size:11px;
+opacity:.6;
+margin-top:6px;
 }
 
-.header-tag{
-  font-family:'MoonTime',cursive;
-  font-size:34px;
-  color:var(--accent2);
-  text-shadow:0 0 18px rgba(255,120,0,0.22);
-}
+/* MECHANICS */
 
-.header-hint{
-  margin-top:6px;
-  font-size:10px;
-  opacity:.55;
-  letter-spacing:.2px;
-}
-
-/* ===== MAIN ===== */
 main{
-  display:flex;
-  justify-content:center;
-  padding:12px 18px 18px;
+display:flex;
+justify-content:center;
+padding:20px;
 }
 
 .container{
-  width:100%;
-  max-width:950px;
-  position:relative;
+width:100%;
+max-width:900px;
 }
 
-/* ===== POSTER CARD ===== */
 .poster-card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 30px 60px rgba(0,0,0,.7);
+background:var(--card);
+border:1px solid var(--border);
+border-radius:24px;
+overflow:hidden;
+box-shadow:0 30px 60px rgba(0,0,0,.6);
 }
 
 .poster-scroll{
-  max-height:78vh;   /* more space for poster */
-  overflow-y:auto;
-  background:#000;
-  padding-right:64px; /* reserve space so Yuna doesn't cover mechanics text */
+max-height:70vh;
+overflow-y:auto;
+background:#000;
 }
 
-/* visible scrollbar */
-.poster-scroll::-webkit-scrollbar{ width:10px; }
-.poster-scroll::-webkit-scrollbar-track{ background:#111; }
+/* SCROLLBAR */
+
+.poster-scroll::-webkit-scrollbar{
+width:10px;
+}
+
+.poster-scroll::-webkit-scrollbar-track{
+background:#111;
+}
+
 .poster-scroll::-webkit-scrollbar-thumb{
-  background:linear-gradient(#ff6a00,#ff9b3d);
-  border-radius:10px;
-}
-.poster-img{ width:100%; display:block; }
-
-/* ===== YUNA (NOT BLOCKING) =====
-   Place Yuna OUTSIDE the card, pinned to the right,
-   and keep it away from the poster text via padding-right above.
-*/
-.yuna{
-  position:absolute;
-  right:-70px;
-  bottom:-10px;
-  height:400px;
-  pointer-events:none;
-  opacity:.92;
-  filter:drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+background:linear-gradient(#ff6a00,#ff9b3d);
+border-radius:10px;
 }
 
-/* ===== FOOTER ===== */
+.poster-img{
+width:100%;
+display:block;
+}
+
+/* FOOTER */
+
 footer{
-  text-align:center;
-  padding:12px 16px 16px;
-  font-size:12px;
-  opacity:.6;
+text-align:center;
+padding:20px;
+font-size:12px;
+opacity:.6;
 }
 
-/* ===== MOBILE ===== */
-@media (max-width:768px){
-  header{ padding:14px 14px 8px; }
-  .header-product{ font-size:22px; }
-  .header-tag{ font-size:28px; }
-  main{ padding:10px 14px 16px; }
+/* DESKTOP ADJUST */
 
-  .yuna{
-    height:260px;
-    right:-25px;
-    opacity:.82;
-  }
+@media(min-width:900px){
 
-  .poster-scroll{
-    padding-right:42px; /* still reserve space on mobile */
-    max-height:76vh;
-  }
+.hero{
+padding-top:50px;
 }
+
+.hero img{
+width:260px;
+}
+
+.product{
+font-size:42px;
+}
+
+.tagline{
+font-size:46px;
+}
+
+.poster-scroll{
+max-height:75vh;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<header>
-  <div class="header-bar">
-    <div class="header-left">
-      <div class="header-brand">Infinix</div>
-      <div class="header-product">NOTE60Pro</div>
-    </div>
+<!-- HERO -->
 
-    <div class="header-right">
-      <div class="header-tag">You Do Note</div>
-      <div class="header-hint">scroll inside the mechanics</div>
-    </div>
-  </div>
-</header>
+<section class="hero">
+
+<img src="YUNA_STANDEE.png" alt="Yuna Standee">
+
+<div class="brand">Infinix</div>
+
+<div class="product">NOTE60Pro</div>
+
+<div class="tagline">You Do Note</div>
+
+<div class="scroll-hint">scroll inside the mechanics</div>
+
+</section>
+
+<!-- MECHANICS -->
 
 <main>
-  <div class="container">
 
-    <div class="poster-card">
-      <div class="poster-scroll">
-        <img class="poster-img" src="FULLMECHANICS.png" alt="NOTE60Pro Mechanics">
-      </div>
-    </div>
+<div class="container">
 
-    <!-- Yuna on the right, outside the mechanics area -->
-    <img class="yuna" src="YUNA_STANDEE.png" alt="Yuna Standee">
+<div class="poster-card">
 
-  </div>
+<div class="poster-scroll">
+
+<img
+class="poster-img"
+src="FULLMECHANICS.png"
+alt="NOTE60Pro Mechanics">
+
+</div>
+
+</div>
+
+</div>
+
 </main>
 
-<footer>© Infinix Promo • NOTE60Pro Campaign</footer>
+<footer>
+© Infinix Promo • NOTE60Pro Campaign
+</footer>
 
 </body>
 </html>
