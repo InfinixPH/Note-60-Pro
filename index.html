@@ -14,49 +14,48 @@
 :root{
 --accent:#ff6a00;
 --accent2:#ff9b3d;
---card:rgba(10,10,10,0.85);
+--card:rgba(10,10,10,0.9);
 --border:rgba(255,255,255,0.12);
 --radius:22px;
---shadow:0 26px 70px rgba(0,0,0,0.55);
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
 
-html,body{height:100%}
+html,body{
+height:100%;
+}
 
-/* ===== SOLAR GRADIENT BACKGROUND ===== */
+/* SOLAR BACKGROUND */
 
 body{
 font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
 color:#fff;
 
 background:
-radial-gradient(900px 520px at 70% 10%, rgba(255,220,140,0.45), transparent 62%),
-radial-gradient(900px 600px at 25% 30%, rgba(255,140,0,0.35), transparent 60%),
-radial-gradient(800px 700px at 55% 95%, rgba(255,90,0,0.22), transparent 65%),
-linear-gradient(180deg,#0b0705,#050505,#000);
+radial-gradient(circle at 70% 10%, rgba(255,200,120,0.45), transparent 60%),
+radial-gradient(circle at 20% 80%, rgba(255,120,0,0.35), transparent 60%),
+linear-gradient(180deg,#0b0705,#000);
 
 overflow:hidden;
 }
 
-/* ===== LAYOUT ===== */
+/* APP */
 
 .app{
 height:100vh;
-height:100dvh;
 display:flex;
 flex-direction:column;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 
 header{
-padding:16px 18px 10px;
+padding:14px 18px;
 }
 
 .header-bar{
 max-width:980px;
-margin:0 auto;
+margin:auto;
 
 display:flex;
 justify-content:space-between;
@@ -65,71 +64,62 @@ align-items:flex-end;
 
 /* LEFT */
 
-.header-left{
-display:flex;
-flex-direction:column;
-line-height:1;
-}
-
 .brand{
 font-size:13px;
-letter-spacing:1.2px;
-opacity:.75;
+letter-spacing:1px;
+opacity:.7;
 }
 
 .product{
 font-size:26px;
 font-weight:900;
-margin-top:4px;
+margin-top:3px;
 }
 
 /* RIGHT */
 
 .header-right{
-display:flex;
-flex-direction:column;
-align-items:flex-end;
+text-align:right;
 }
 
 .tagline{
 font-family:"MoonTime",cursive;
-font-size:34px;
+font-size:32px;
 color:var(--accent2);
 }
 
 .hint{
 font-size:10px;
 opacity:.6;
-margin-top:6px;
+margin-top:4px;
 }
 
-/* ===== MAIN ===== */
+/* MAIN */
 
 main{
 flex:1;
 display:flex;
 justify-content:center;
-padding:12px 18px 16px;
+padding:12px 16px;
 }
 
 /* CONTAINER */
 
 .container{
 width:100%;
-max-width:980px;
+max-width:950px;
 display:flex;
 flex-direction:column;
 }
 
-/* POSTER CARD */
+/* POSTER */
 
 .poster-card{
 flex:1;
-border-radius:var(--radius);
-overflow:hidden;
 background:var(--card);
 border:1px solid var(--border);
-box-shadow:var(--shadow);
+border-radius:var(--radius);
+overflow:hidden;
 }
 
 /* SCROLL */
@@ -138,9 +128,6 @@ box-shadow:var(--shadow);
 height:100%;
 overflow-y:auto;
 background:#000;
-
-scrollbar-width:thin;
-scrollbar-color:#ff6a00 rgba(255,255,255,0.15);
 }
 
 /* SCROLLBAR */
@@ -150,31 +137,31 @@ width:10px;
 }
 
 .poster-scroll::-webkit-scrollbar-track{
-background:rgba(255,255,255,0.08);
+background:#111;
 }
 
 .poster-scroll::-webkit-scrollbar-thumb{
-background:linear-gradient(#ff6a00,#ffb15a);
+background:linear-gradient(#ff6a00,#ff9b3d);
 border-radius:10px;
 }
 
-/* POSTER */
+/* IMAGE */
 
 .poster-img{
 width:100%;
 display:block;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 
 footer{
 text-align:center;
-padding:10px 14px 12px;
+padding:10px;
 font-size:12px;
 opacity:.6;
 }
 
-/* ===== MOBILE ===== */
+/* MOBILE */
 
 @media(max-width:520px){
 
@@ -184,14 +171,6 @@ font-size:22px;
 
 .tagline{
 font-size:26px;
-}
-
-.hint{
-font-size:9px;
-}
-
-main{
-padding:8px 12px 12px;
 }
 
 }
@@ -208,7 +187,7 @@ padding:8px 12px 12px;
 
 <div class="header-bar">
 
-<div class="header-left">
+<div>
 <div class="brand">Infinix</div>
 <div class="product">NOTE60Pro</div>
 </div>
@@ -232,7 +211,7 @@ padding:8px 12px 12px;
 
 <img
 class="poster-img"
-src="./FULLMECHANICS.png"
+src="FULLMECHANICS.png"
 alt="NOTE60Pro Mechanics">
 
 </div>
