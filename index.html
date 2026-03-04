@@ -1,418 +1,223 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Infinix NOTE60PRO – You Do Note</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- HK MODULAR -->
+<title>Infinix NOTE60PRO</title>
+
 <link href="https://fonts.cdnfonts.com/css/hk-modular" rel="stylesheet">
-<!-- MOONTIME -->
 <link href="https://db.onlinewebfonts.com/c/657bc16f9d9e1138aedc238e69ff1983?family=MoonTime" rel="stylesheet">
 
 <style>
+
 :root{
-  --accent:#ff6a00;
-  --accent2:#ff9b3d;
-
-  --glass:rgba(255,255,255,0.06);
-  --border:rgba(255,255,255,0.16);
-  --radius:24px;
-
-  --shadow:0 30px 100px rgba(0,0,0,0.85);
-  --bg0:#000;
-  --bg1:#070707;
+--accent:#ff6a00;
+--accent2:#ff9b3d;
+--card:#0b0b0b;
+--border:#1e1e1e;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html,body{
+height:100%;
+}
 
 body{
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:#fff;
-  overflow:hidden;
-  background:var(--bg0);
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+color:#fff;
+background:
+radial-gradient(circle at 70% 20%, rgba(255,110,0,0.25), transparent 40%),
+radial-gradient(circle at 30% 80%, rgba(255,80,0,0.2), transparent 40%),
+#000;
+
+overflow:hidden;
 }
 
-/* =========================
-APPLE-STYLE BACKGROUND
-========================= */
-.bg{
-  position:fixed;
-  inset:-25%;
-  z-index:-5;
-  background:
-    radial-gradient(1000px 650px at 80% 15%, rgba(255,120,0,0.55), transparent 62%),
-    radial-gradient(900px 700px at 15% 15%, rgba(255,70,0,0.28), transparent 60%),
-    radial-gradient(700px 520px at 60% 82%, rgba(255,170,90,0.20), transparent 60%),
-    linear-gradient(180deg,var(--bg0),var(--bg1));
-  filter:saturate(1.2) contrast(1.05);
-  animation:bgFloat 12s ease-in-out infinite alternate;
-}
-@keyframes bgFloat{
-  0%{ transform:translate3d(-1.2%, -1%, 0) scale(1.03); }
-  100%{ transform:translate3d(1.2%, 1%, 0) scale(1.08); }
-}
+/* LAYOUT */
 
-/* Subtle grain */
-.grain{
-  position:fixed;
-  inset:0;
-  z-index:-4;
-  pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
-  opacity:0.08;
-  mix-blend-mode:overlay;
-}
-
-/* Floating particles */
-.particles{
-  position:fixed;
-  inset:0;
-  z-index:-3;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 10% 20%, rgba(255,140,60,0.22) 0 2px, transparent 3px),
-    radial-gradient(circle at 30% 70%, rgba(255,140,60,0.18) 0 2px, transparent 3px),
-    radial-gradient(circle at 60% 35%, rgba(255,160,90,0.16) 0 2px, transparent 3px),
-    radial-gradient(circle at 85% 60%, rgba(255,140,60,0.18) 0 2px, transparent 3px),
-    radial-gradient(circle at 75% 80%, rgba(255,170,100,0.14) 0 2px, transparent 3px);
-  background-size: 520px 520px;
-  animation: particleDrift 16s linear infinite;
-}
-@keyframes particleDrift{
-  0%{ background-position: 0 0; opacity:.55; }
-  50%{ opacity:.85; }
-  100%{ background-position: 520px 520px; opacity:.55; }
-}
-
-/* =========================
-APP LAYOUT
-========================= */
 .app{
-  height:100vh;
-  height:100dvh;
-  display:flex;
-  flex-direction:column;
+height:100vh;
+display:flex;
+flex-direction:column;
 }
 
-/* =========================
-HEADER (YUNA BEHIND)
-========================= */
+/* HEADER */
+
 header{
-  position:sticky;
-  top:0;
-  z-index:30;
-  backdrop-filter: blur(18px);
-  background: linear-gradient(to bottom, rgba(0,0,0,0.92), rgba(0,0,0,0.55));
-  border-bottom:1px solid rgba(255,255,255,0.08);
+padding:30px 20px 10px;
+text-align:center;
 }
 
-/* Header stage = like product launch hero */
-.header-stage{
-  max-width:980px;
-  margin:0 auto;
-  padding:22px 20px 18px;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-}
-
-/* Yuna behind header text */
-.header-yuna{
-  position:absolute;
-  right:10px;
-  bottom:-26px;
-  height:220px;          /* adjust if you want bigger: 260px */
-  width:auto;
-  opacity:0.35;          /* behind */
-  filter:
-    saturate(1.05)
-    contrast(1.02)
-    drop-shadow(0 18px 40px rgba(0,0,0,0.55))
-    drop-shadow(0 0 30px rgba(255,120,0,0.15));
-  pointer-events:none;
-  z-index:0;
-
-  /* fade edges so it blends */
-  -webkit-mask-image: radial-gradient(circle at 70% 70%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 74%);
-  mask-image: radial-gradient(circle at 70% 70%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 74%);
-
-  animation:yunaFloat 9s ease-in-out infinite alternate;
-}
-@keyframes yunaFloat{
-  0%{ transform:translateY(6px); }
-  100%{ transform:translateY(-6px); }
-}
-
-/* Orange “titanium” glow halo behind title */
-.header-stage::before{
-  content:"";
-  position:absolute;
-  inset:-40px -80px auto -80px;
-  height:160px;
-  background:
-    radial-gradient(closest-side at 50% 55%, rgba(255,120,0,0.30), transparent 70%),
-    radial-gradient(closest-side at 65% 45%, rgba(255,170,100,0.16), transparent 70%);
-  pointer-events:none;
-  z-index:0;
-  animation:halo 6s ease-in-out infinite alternate;
-}
-@keyframes halo{
-  0%{ transform:translateY(6px); opacity:.65; }
-  100%{ transform:translateY(-6px); opacity:.9; }
-}
-
-.header-text{
-  text-align:center;
-  position:relative;
-  z-index:1;
-}
-
-/* Metallic title */
 .header-title{
-  font-family:'HK Modular', sans-serif;
-  font-weight:900;
-  font-size:38px;
-  letter-spacing:0.8px;
-  line-height:1.05;
-  background:linear-gradient(180deg,#ffffff, rgba(255,255,255,0.72));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  text-shadow:0 10px 35px rgba(0,0,0,0.45);
-  position:relative;
-  display:inline-block;
+font-family:'HK Modular',sans-serif;
+font-size:36px;
+font-weight:900;
+letter-spacing:1px;
 }
 
-/* Shine sweep */
-.header-title::after{
-  content:"";
-  position:absolute;
-  inset:-12px -180px -12px -180px;
-  background:linear-gradient(90deg, transparent, rgba(255,210,160,0.28), transparent);
-  transform:skewX(-18deg);
-  animation:titleSweep 4.2s ease-in-out infinite;
-  pointer-events:none;
-}
-@keyframes titleSweep{
-  0%{ transform:translateX(-42%) skewX(-18deg); opacity:.18; }
-  45%{ opacity:.60; }
-  100%{ transform:translateX(42%) skewX(-18deg); opacity:.18; }
-}
-
-/* Tagline */
 .header-tag{
-  font-family:'MoonTime', cursive;
-  font-size:48px;
-  line-height:1;
-  color:var(--accent2);
-  text-shadow:
-    0 0 18px rgba(255,120,0,0.30),
-    0 0 45px rgba(255,120,0,0.22);
-  transform: translateY(-2px);
-  margin-top:4px;
+font-family:'MoonTime',cursive;
+font-size:44px;
+color:var(--accent2);
+margin-top:4px;
 }
 
 .header-hint{
-  margin-top:6px;
-  font-size:10px;
-  opacity:.55;
-  letter-spacing:.2px;
-  text-transform:none;
+font-size:11px;
+opacity:.6;
+margin-top:4px;
 }
 
-/* =========================
-MAIN
-========================= */
+/* MAIN */
+
 main{
-  flex:1 1 auto;
-  min-height:0;
-  display:flex;
-  justify-content:center;
-  padding:16px;
+flex:1;
+display:flex;
+justify-content:center;
+padding:16px;
 }
 
 .wrap{
-  width:100%;
-  max-width:980px;
-  min-height:0;
-  display:flex;
-  flex-direction:column;
+width:100%;
+max-width:900px;
+position:relative;
 }
 
-/* Premium glass card */
+/* POSTER */
+
 .poster-card{
-  flex:1 1 auto;
-  min-height:0;
-  border-radius:var(--radius);
-  overflow:hidden;
-  background:var(--glass);
-  border:1px solid var(--border);
-  box-shadow:var(--shadow);
-  backdrop-filter: blur(16px);
-  position:relative;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:20px;
+overflow:hidden;
+height:100%;
 }
 
-/* Inner glow ring + sheen */
-.poster-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  pointer-events:none;
-  box-shadow:
-    inset 0 0 0 1px rgba(255,120,0,0.20),
-    inset 0 0 50px rgba(255,120,0,0.10);
-}
-.poster-card::after{
-  content:"";
-  position:absolute;
-  left:-15%;
-  top:-35%;
-  width:130%;
-  height:70%;
-  background:linear-gradient(180deg, rgba(255,255,255,0.09), transparent 68%);
-  transform:rotate(-3deg);
-  pointer-events:none;
-}
-
-/* Scroll area w/ visible scrollbar */
 .poster-scroll{
-  height:100%;
-  overflow-y:auto;
-  overflow-x:hidden;
-  background:#000;
+height:100%;
+overflow-y:auto;
+background:#000;
+}
 
-  scrollbar-width:thin;
-  scrollbar-color: var(--accent) #111;
+/* scrollbar */
+
+.poster-scroll::-webkit-scrollbar{
+width:10px;
 }
-.poster-scroll::-webkit-scrollbar{ width:10px; }
-.poster-scroll::-webkit-scrollbar-track{ background:#111; }
+
+.poster-scroll::-webkit-scrollbar-track{
+background:#111;
+}
+
 .poster-scroll::-webkit-scrollbar-thumb{
-  background:linear-gradient(180deg, var(--accent), var(--accent2));
-  border-radius:10px;
-}
-.poster-scroll::-webkit-scrollbar-thumb:hover{
-  background:linear-gradient(180deg, #ff7a12, #ffb05a);
+background:linear-gradient(#ff6a00,#ff9b3d);
+border-radius:10px;
 }
 
 .poster-img{
-  width:100%;
-  height:auto;
-  display:block;
+width:100%;
+display:block;
 }
 
-/* =========================
-YUNA STANDEE (BOTTOM RIGHT)
-========================= */
-.yuna-standee{
-  position:fixed;
-  right:28px;
-  bottom:-8px;
-  height:min(460px, 50vh);
-  width:auto;
-  z-index:25;
+/* YUNA */
 
-  filter:
-    drop-shadow(0 18px 35px rgba(0,0,0,0.65))
-    drop-shadow(0 0 28px rgba(255,120,0,0.20));
-
-  opacity:0.98;
-  pointer-events:none;
-
-  animation: standeeIn 900ms ease-out both;
-}
-@keyframes standeeIn{
-  from{ transform:translateY(18px); opacity:0; }
-  to{ transform:translateY(0); opacity:0.98; }
+.yuna{
+position:fixed;
+right:40px;
+bottom:0;
+height:420px;
+pointer-events:none;
+opacity:.95;
 }
 
-/* =========================
-FOOTER
-========================= */
+/* FOOTER */
+
 footer{
-  border-top:1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(18px);
-  background: linear-gradient(to top, rgba(0,0,0,0.92), rgba(0,0,0,0.55));
-}
-.footer-wrap{
-  max-width:980px;
-  margin:0 auto;
-  padding:10px 16px 12px;
-  text-align:center;
-  font-size:12px;
-  opacity:.72;
+text-align:center;
+padding:10px;
+font-size:12px;
+opacity:.6;
 }
 
-/* =========================
-MOBILE
-========================= */
-@media(max-width:520px){
-  .header-stage{ padding:18px 16px 16px; }
-  .header-title{ font-size:28px; }
-  .header-tag{ font-size:34px; }
-  main{ padding:12px; }
+/* MOBILE */
 
-  .yuna-standee{
-    height:min(320px, 42vh);
-    right:10px;
-    opacity:0.86;
-  }
+@media(max-width:768px){
 
-  .header-yuna{
-    height:170px;
-    right:-6px;
-    bottom:-22px;
-    opacity:0.28;
-  }
+.yuna{
+height:260px;
+right:10px;
 }
+
+.header-title{
+font-size:28px;
+}
+
+.header-tag{
+font-size:32px;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
-<div class="bg"></div>
-<div class="grain"></div>
-<div class="particles"></div>
 
 <div class="app">
 
 <header>
-  <div class="header-stage">
-    <!-- Yuna behind header (same file) -->
-    <img class="header-yuna" src="./YUNA_STANDEE.png" alt="" aria-hidden="true">
-    <div class="header-text">
-      <div class="header-title">Infinix NOTE60PRO</div>
-      <div class="header-tag">You Do Note</div>
-      <div class="header-hint">scroll inside the mechanics</div>
-    </div>
-  </div>
+
+<div class="header-title">
+Infinix NOTE60PRO
+</div>
+
+<div class="header-tag">
+You Do Note
+</div>
+
+<div class="header-hint">
+scroll inside the mechanics
+</div>
+
 </header>
 
 <main>
-  <div class="wrap">
-    <section class="poster-card">
-      <div class="poster-scroll">
-        <img class="poster-img"
-             src="./FULLMECHANICS.png"
-             alt="Infinix NOTE60PRO Mechanics"
-             loading="eager"
-             decoding="async">
-      </div>
-    </section>
-  </div>
+
+<div class="wrap">
+
+<div class="poster-card">
+
+<div class="poster-scroll">
+
+<img
+class="poster-img"
+src="FULLMECHANICS.png">
+
+</div>
+
+</div>
+
+</div>
+
 </main>
 
 <footer>
-  <div class="footer-wrap">© Infinix Promo • Note 60 Pro Campaign</div>
+© Infinix Promo • Note 60 Pro Campaign
 </footer>
 
 </div>
 
-<!-- Yuna standee foreground -->
-<img class="yuna-standee" src="./YUNA_STANDEE.png" alt="Yuna Standee">
+<img
+class="yuna"
+src="YUNA_STANDEE.png">
 
 </body>
 </html>
