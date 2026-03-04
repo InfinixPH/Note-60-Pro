@@ -1,292 +1,181 @@
 <!doctype html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Infinix Note 60 Pro – You Do Note</title>
 
+<!-- Load MoonTime font (web) -->
+<link href="https://db.onlinewebfonts.com/c/657bc16f9d9e1138aedc238e69ff1983?family=MoonTime" rel="stylesheet">
+
 <style>
-
 :root{
---accent:#ff6a00;
---accent2:#ff9b3d;
---bg:#050505;
---card:rgba(255,255,255,0.05);
---border:rgba(255,255,255,0.15);
---radius:20px;
+  --accent:#ff6a00;
+  --accent2:#ff9b3d;
+  --bg:#050505;
+  --card:rgba(255,255,255,0.05);
+  --border:rgba(255,255,255,0.15);
+  --radius:20px;
 }
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
-html,body{
-height:100%;
-font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-color:white;
-overflow:hidden;
-}
-
-/* =========================
-BACKGROUND
-========================= */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
 
 body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:#fff;
+  overflow:hidden;
 
-background:
-radial-gradient(circle at 20% 10%, rgba(255,120,0,0.35), transparent 50%),
-radial-gradient(circle at 80% 20%, rgba(255,90,0,0.35), transparent 60%),
-linear-gradient(180deg,#000,#050505);
-
-animation: glowMove 10s infinite alternate ease-in-out;
+  /* ORANGE "iPhone-style" background */
+  background:
+    radial-gradient(900px 600px at 80% 20%, rgba(255,120,0,0.35), transparent 60%),
+    radial-gradient(1000px 700px at 10% 10%, rgba(255,80,0,0.25), transparent 55%),
+    linear-gradient(180deg,#000,#050505);
 }
-
-@keyframes glowMove{
-
-0%{
-background-position:0% 0%;
-}
-
-100%{
-background-position:40% 20%;
-}
-
-}
-
-/* =========================
-APP LAYOUT
-========================= */
 
 .app{
-height:100vh;
-height:100dvh;
-display:flex;
-flex-direction:column;
+  height:100vh;
+  height:100dvh;
+  display:flex;
+  flex-direction:column;
 }
 
-/* =========================
-HEADER
-========================= */
-
+/* HEADER */
 header{
-
-position:sticky;
-top:0;
-backdrop-filter:blur(18px);
-
-background:linear-gradient(
-to bottom,
-rgba(0,0,0,0.9),
-rgba(0,0,0,0.6)
-);
-
-border-bottom:1px solid rgba(255,255,255,0.08);
-z-index:10;
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(18px);
+  background:linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.6));
+  border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .header-wrap{
-
-max-width:980px;
-margin:auto;
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-padding:16px;
+  max-width:980px;
+  margin:auto;
+  padding:16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .header-title{
-
-font-weight:800;
-font-size:16px;
-letter-spacing:0.5px;
+  font-weight:800;
+  font-size:16px;
+  letter-spacing:0.5px;
 }
 
 .header-tag{
-
-font-size:12px;
-color:var(--accent2);
+  font-size:18px;
+  color:var(--accent2);
+  font-family:"MoonTime", cursive; /* ✅ Moontime */
+  font-weight:400;
+  letter-spacing:0.2px;
 }
 
-/* =========================
-MAIN
-========================= */
-
+/* MAIN */
 main{
-
-flex:1;
-display:flex;
-justify-content:center;
-align-items:center;
-
-padding:16px;
+  flex:1;
+  min-height:0;
+  display:flex;
+  justify-content:center;
+  padding:16px;
 }
 
 .wrap{
-
-width:100%;
-max-width:980px;
-height:100%;
+  width:100%;
+  max-width:980px;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
 }
-
-/* =========================
-POSTER CARD
-========================= */
 
 .poster-card{
+  flex:1;
+  min-height:0;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  backdrop-filter:blur(14px);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
 
-height:100%;
-
-background:var(--card);
-border:1px solid var(--border);
-
-border-radius:var(--radius);
-
-backdrop-filter:blur(14px);
-
-box-shadow:
-0 30px 80px rgba(0,0,0,0.8),
-0 0 60px rgba(255,110,0,0.25);
-
-overflow:hidden;
-
-display:flex;
-flex-direction:column;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.8),
+    0 0 60px rgba(255,110,0,0.25);
 }
-
-/* =========================
-SCROLL AREA
-========================= */
 
 .poster-scroll{
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  background:#000;
 
-flex:1;
-
-overflow-y:auto;
-overflow-x:hidden;
-
-scrollbar-width:none;
--ms-overflow-style:none;
-
-background:black;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
 }
-
-.poster-scroll::-webkit-scrollbar{
-display:none;
-}
+.poster-scroll::-webkit-scrollbar{display:none}
 
 .poster-img{
-
-width:100%;
-height:auto;
-display:block;
+  width:100%;
+  height:auto;
+  display:block;
 }
 
-/* =========================
-FOOTER
-========================= */
-
+/* FOOTER */
 footer{
-
-border-top:1px solid rgba(255,255,255,0.08);
-
-backdrop-filter:blur(18px);
-
-background:linear-gradient(
-to top,
-rgba(0,0,0,0.9),
-rgba(0,0,0,0.6)
-);
+  border-top:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(18px);
+  background:linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.6));
 }
-
 .footer-wrap{
-
-max-width:980px;
-margin:auto;
-
-text-align:center;
-
-padding:10px;
-
-font-size:12px;
-opacity:.7;
+  max-width:980px;
+  margin:auto;
+  padding:10px 16px 12px;
+  text-align:center;
+  font-size:12px;
+  opacity:.7;
 }
 
-/* =========================
-MOBILE
-========================= */
-
-@media(max-width:520px){
-
-.header-title{
-font-size:14px;
+@media (max-width:520px){
+  .header-title{font-size:14px}
+  .header-tag{font-size:16px}
+  main{padding:12px}
 }
-
-main{
-padding:12px;
-}
-
-}
-
 </style>
-
 </head>
 
 <body>
-
 <div class="app">
 
 <header>
-
-<div class="header-wrap">
-
-<div class="header-title">
-Infinix Note 60 Pro
-</div>
-
-<div class="header-tag">
-You Do Note
-</div>
-
-</div>
-
+  <div class="header-wrap">
+    <div class="header-title">Infinix Note 60 Pro</div>
+    <div class="header-tag">You Do Note</div>
+  </div>
 </header>
 
 <main>
-
-<div class="wrap">
-
-<section class="poster-card">
-
-<div class="poster-scroll">
-
-<img
-class="poster-img"
-src="./FULLMECHANICS.PNG"
-alt="Note 60 Pro Mechanics"
-loading="eager">
-
-</div>
-
-</section>
-
-</div>
-
+  <div class="wrap">
+    <section class="poster-card">
+      <div class="poster-scroll">
+        <img
+          class="poster-img"
+          src="./FULLMECHANICS.png"
+          alt="Infinix Note 60 Pro Mechanics"
+          loading="eager"
+        />
+      </div>
+    </section>
+  </div>
 </main>
 
 <footer>
-
-<div class="footer-wrap">
-© Infinix Promo • Note 60 Pro Campaign
-</div>
-
+  <div class="footer-wrap">© Infinix Promo • Note 60 Pro Campaign</div>
 </footer>
 
 </div>
-
 </body>
 </html>
