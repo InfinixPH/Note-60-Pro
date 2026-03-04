@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Infinix NOTE60Pro</title>
 
 <link href="https://db.onlinewebfonts.com/c/657bc16f9d9e1138aedc238e69ff1983?family=MoonTime" rel="stylesheet">
@@ -13,92 +14,133 @@
 :root{
 --accent:#ff6a00;
 --accent2:#ff9b3d;
---card:#0e0e0e;
---border:#1e1e1e;
+--card:rgba(10,10,10,0.85);
+--border:rgba(255,255,255,0.12);
+--radius:22px;
+--shadow:0 26px 70px rgba(0,0,0,0.55);
 }
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
+
+html,body{height:100%}
+
+/* ===== SOLAR GRADIENT BACKGROUND ===== */
 
 body{
 font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
 color:#fff;
 
-/* SOLAR GRADIENT BACKGROUND */
 background:
-radial-gradient(circle at 50% -20%, #ffb347 0%, #ff6a00 35%, #0d0d0d 70%),
-linear-gradient(180deg,#000,#0a0a0a);
+radial-gradient(900px 520px at 70% 10%, rgba(255,220,140,0.45), transparent 62%),
+radial-gradient(900px 600px at 25% 30%, rgba(255,140,0,0.35), transparent 60%),
+radial-gradient(800px 700px at 55% 95%, rgba(255,90,0,0.22), transparent 65%),
+linear-gradient(180deg,#0b0705,#050505,#000);
 
-overflow:auto;
+overflow:hidden;
 }
 
-/* HERO SECTION */
+/* ===== LAYOUT ===== */
 
-.hero{
-text-align:center;
-padding:30px 20px 10px;
+.app{
+height:100vh;
+height:100dvh;
+display:flex;
+flex-direction:column;
 }
 
-.hero img{
-width:220px;
-max-width:60%;
-margin:0 auto 10px;
-display:block;
+/* ===== HEADER ===== */
+
+header{
+padding:16px 18px 10px;
+}
+
+.header-bar{
+max-width:980px;
+margin:0 auto;
+
+display:flex;
+justify-content:space-between;
+align-items:flex-end;
+}
+
+/* LEFT */
+
+.header-left{
+display:flex;
+flex-direction:column;
+line-height:1;
 }
 
 .brand{
-font-size:14px;
-opacity:.8;
-letter-spacing:2px;
+font-size:13px;
+letter-spacing:1.2px;
+opacity:.75;
 }
 
 .product{
-font-size:34px;
+font-size:26px;
 font-weight:900;
 margin-top:4px;
 }
 
-.tagline{
-font-family:'MoonTime',cursive;
-font-size:38px;
-color:var(--accent2);
-margin-top:6px;
+/* RIGHT */
+
+.header-right{
+display:flex;
+flex-direction:column;
+align-items:flex-end;
 }
 
-.scroll-hint{
-font-size:11px;
+.tagline{
+font-family:"MoonTime",cursive;
+font-size:34px;
+color:var(--accent2);
+}
+
+.hint{
+font-size:10px;
 opacity:.6;
 margin-top:6px;
 }
 
-/* MECHANICS */
+/* ===== MAIN ===== */
 
 main{
+flex:1;
 display:flex;
 justify-content:center;
-padding:20px;
+padding:12px 18px 16px;
 }
+
+/* CONTAINER */
 
 .container{
 width:100%;
-max-width:900px;
+max-width:980px;
+display:flex;
+flex-direction:column;
 }
+
+/* POSTER CARD */
 
 .poster-card{
+flex:1;
+border-radius:var(--radius);
+overflow:hidden;
 background:var(--card);
 border:1px solid var(--border);
-border-radius:24px;
-overflow:hidden;
-box-shadow:0 30px 60px rgba(0,0,0,.6);
+box-shadow:var(--shadow);
 }
 
+/* SCROLL */
+
 .poster-scroll{
-max-height:70vh;
+height:100%;
 overflow-y:auto;
 background:#000;
+
+scrollbar-width:thin;
+scrollbar-color:#ff6a00 rgba(255,255,255,0.15);
 }
 
 /* SCROLLBAR */
@@ -108,50 +150,48 @@ width:10px;
 }
 
 .poster-scroll::-webkit-scrollbar-track{
-background:#111;
+background:rgba(255,255,255,0.08);
 }
 
 .poster-scroll::-webkit-scrollbar-thumb{
-background:linear-gradient(#ff6a00,#ff9b3d);
+background:linear-gradient(#ff6a00,#ffb15a);
 border-radius:10px;
 }
+
+/* POSTER */
 
 .poster-img{
 width:100%;
 display:block;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 
 footer{
 text-align:center;
-padding:20px;
+padding:10px 14px 12px;
 font-size:12px;
 opacity:.6;
 }
 
-/* DESKTOP ADJUST */
+/* ===== MOBILE ===== */
 
-@media(min-width:900px){
-
-.hero{
-padding-top:50px;
-}
-
-.hero img{
-width:260px;
-}
+@media(max-width:520px){
 
 .product{
-font-size:42px;
+font-size:22px;
 }
 
 .tagline{
-font-size:46px;
+font-size:26px;
 }
 
-.poster-scroll{
-max-height:75vh;
+.hint{
+font-size:9px;
+}
+
+main{
+padding:8px 12px 12px;
 }
 
 }
@@ -162,23 +202,25 @@ max-height:75vh;
 
 <body>
 
-<!-- HERO -->
+<div class="app">
 
-<section class="hero">
+<header>
 
-<img src="YUNA_STANDEE.png" alt="Yuna Standee">
+<div class="header-bar">
 
+<div class="header-left">
 <div class="brand">Infinix</div>
-
 <div class="product">NOTE60Pro</div>
+</div>
 
+<div class="header-right">
 <div class="tagline">You Do Note</div>
+<div class="hint">scroll inside the mechanics</div>
+</div>
 
-<div class="scroll-hint">scroll inside the mechanics</div>
+</div>
 
-</section>
-
-<!-- MECHANICS -->
+</header>
 
 <main>
 
@@ -190,7 +232,7 @@ max-height:75vh;
 
 <img
 class="poster-img"
-src="FULLMECHANICS.png"
+src="./FULLMECHANICS.png"
 alt="NOTE60Pro Mechanics">
 
 </div>
@@ -204,6 +246,8 @@ alt="NOTE60Pro Mechanics">
 <footer>
 © Infinix Promo • NOTE60Pro Campaign
 </footer>
+
+</div>
 
 </body>
 </html>
