@@ -7,7 +7,6 @@
 
 <title>Infinix NOTE60Pro</title>
 
-<link href="https://fonts.cdnfonts.com/css/hk-modular" rel="stylesheet">
 <link href="https://db.onlinewebfonts.com/c/657bc16f9d9e1138aedc238e69ff1983?family=MoonTime" rel="stylesheet">
 
 <style>
@@ -15,8 +14,8 @@
 :root{
 --accent:#ff6a00;
 --accent2:#ff9b3d;
---card:#0b0b0b;
---border:#1e1e1e;
+--card:#0c0c0c;
+--border:#1d1d1d;
 }
 
 *{
@@ -30,8 +29,8 @@ font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
 color:#fff;
 
 background:
-radial-gradient(circle at 70% 20%, rgba(255,110,0,0.25), transparent 40%),
-radial-gradient(circle at 30% 80%, rgba(255,80,0,0.2), transparent 40%),
+radial-gradient(circle at 80% 20%, rgba(255,120,0,0.25), transparent 40%),
+radial-gradient(circle at 20% 90%, rgba(255,80,0,0.2), transparent 40%),
 #000;
 
 overflow:auto;
@@ -41,31 +40,33 @@ overflow:auto;
 
 header{
 text-align:center;
-padding:30px 20px 10px;
+padding:40px 20px 20px;
 }
 
-.header-title{
-font-size:36px;
-font-weight:500;
-letter-spacing:.5px;
+.header-brand{
+font-size:18px;
+opacity:.7;
+letter-spacing:2px;
 }
 
-.header-title span{
+.header-product{
+font-size:48px;
 font-weight:900;
-letter-spacing:1.5px;
+letter-spacing:1px;
+margin-top:4px;
 }
 
 .header-tag{
 font-family:'MoonTime',cursive;
-font-size:42px;
+font-size:46px;
 color:var(--accent2);
-margin-top:4px;
+margin-top:6px;
 }
 
 .header-hint{
 font-size:11px;
 opacity:.6;
-margin-top:4px;
+margin-top:6px;
 }
 
 /* MAIN */
@@ -73,28 +74,27 @@ margin-top:4px;
 main{
 display:flex;
 justify-content:center;
-padding:16px;
+padding:20px;
 }
 
-.wrap{
+.container{
 width:100%;
-max-width:900px;
+max-width:950px;
 position:relative;
 }
 
-/* POSTER CARD */
+/* POSTER */
 
 .poster-card{
 background:var(--card);
 border:1px solid var(--border);
-border-radius:20px;
+border-radius:24px;
 overflow:hidden;
+box-shadow:0 30px 60px rgba(0,0,0,.7);
 }
 
-/* SCROLL */
-
 .poster-scroll{
-max-height:70vh;
+max-height:72vh;
 overflow-y:auto;
 background:#000;
 }
@@ -114,19 +114,17 @@ background:linear-gradient(#ff6a00,#ff9b3d);
 border-radius:10px;
 }
 
-/* POSTER IMAGE */
-
 .poster-img{
 width:100%;
 display:block;
 }
 
-/* YUNA STANDEE */
+/* YUNA */
 
 .yuna{
-position:fixed;
-right:40px;
-bottom:0;
+position:absolute;
+right:-60px;
+bottom:-20px;
 height:420px;
 pointer-events:none;
 opacity:.95;
@@ -136,7 +134,7 @@ opacity:.95;
 
 footer{
 text-align:center;
-padding:10px;
+padding:16px;
 font-size:12px;
 opacity:.6;
 }
@@ -145,17 +143,17 @@ opacity:.6;
 
 @media(max-width:768px){
 
-.yuna{
-height:260px;
-right:10px;
-}
-
-.header-title{
-font-size:28px;
+.header-product{
+font-size:36px;
 }
 
 .header-tag{
-font-size:32px;
+font-size:34px;
+}
+
+.yuna{
+height:260px;
+right:-20px;
 }
 
 }
@@ -168,8 +166,12 @@ font-size:32px;
 
 <header>
 
-<div class="header-title">
-Infinix <span>NOTE60Pro</span>
+<div class="header-brand">
+Infinix
+</div>
+
+<div class="header-product">
+NOTE60Pro
 </div>
 
 <div class="header-tag">
@@ -184,7 +186,7 @@ scroll inside the mechanics
 
 <main>
 
-<div class="wrap">
+<div class="container">
 
 <div class="poster-card">
 
@@ -199,18 +201,18 @@ alt="NOTE60Pro Mechanics">
 
 </div>
 
+<img
+class="yuna"
+src="YUNA_STANDEE.png"
+alt="Yuna Standee">
+
 </div>
 
 </main>
 
 <footer>
-© Infinix Promo • Note 60 Pro Campaign
+© Infinix Promo • NOTE60Pro Campaign
 </footer>
-
-<img
-class="yuna"
-src="YUNA_STANDEE.png"
-alt="Yuna Standee">
 
 </body>
 </html>
