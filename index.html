@@ -113,29 +113,30 @@ header{
   gap:14px;
 }
 
-/* Left side: Infinix NOTE60 Pro (bigger, aligned) */
+/* LEFT SIDE: Infinix logo (BIG) */
 .header-left{
   display:flex;
   flex-direction:column;
   line-height:1;
 }
-.brand{
-  /* "Infinix" is now replaced by logo on right, so we remove text */
-  display:none;
-}
-.product{
-  margin-top:4px;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  font-size:32px;        /* bigger than before */
-  font-weight:900;
-  letter-spacing:.6px;
-  line-height:1.1;
-}
-.product span{
-  font-weight:900;
+
+.logo-wrap {
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  height:48px;           /* increased height for bigger logo */
+  margin-bottom:0;
 }
 
-/* Right side: INFINIX LOGO (white) + optional small hint */
+.infinix-logo {
+  height:48px;            /* BIG logo - increased from 42px to 48px */
+  width:auto;
+  filter: brightness(0) invert(1); /* turns black PNG into white */
+  image-rendering: crisp-edges;
+  display:block;
+}
+
+/* RIGHT SIDE: NOTE60 Pro (now on right) */
 .header-right{
   display:flex;
   flex-direction:column;
@@ -144,21 +145,22 @@ header{
   line-height:1;
 }
 
-/* Logo container */
-.logo-wrap {
-  display:flex;
-  justify-content:flex-end;
-  margin-bottom:4px; /* fine-tune vertical alignment with NOTE60 Pro */
+.product{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-size:36px;        /* even BIGGER to match logo presence */
+  font-weight:900;
+  letter-spacing:.6px;
+  line-height:1.1;
+  white-space:nowrap;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,106,0,0.3);
 }
-.infinix-logo {
-  height:38px;           /* matches visual weight with 32px text */
-  width:auto;
-  filter: brightness(0) invert(1); /* turns black PNG into white */
-  image-rendering: crisp-edges; /* keep edges sharp */
+.product span{
+  font-weight:900;
 }
 
 .header-hint{
-  margin-top:6px;
+  margin-top:8px;
   font-size:10px;
   opacity:.6;
   letter-spacing:.2px;
@@ -262,9 +264,11 @@ MOBILE
 ========================= */
 @media (max-width:520px){
   .header-bar{ padding:12px 12px 10px; }
-  .brand{ display:none; }
-  .product{ font-size:26px; } /* slightly smaller but still bigger than before */
-  .infinix-logo { height:30px; }
+  
+  .logo-wrap { height:38px; }
+  .infinix-logo { height:38px; }
+  
+  .product{ font-size:28px; }
   .header-hint{ font-size:9px; margin-top:5px; }
   main{ padding:10px 12px 12px; }
 }
@@ -280,17 +284,16 @@ MOBILE
 
 <header>
   <div class="header-bar">
-    <!-- Left side: NOTE60 Pro (bigger, "Infinix" removed) -->
+    <!-- LEFT SIDE: Infinix logo (BIG) -->
     <div class="header-left">
-      <!-- .brand (Infinix text) is hidden via display:none -->
-      <div class="product"><span>NOTE60 Pro</span></div>
-    </div>
-
-    <!-- Right side: Infinix logo (white) + hint -->
-    <div class="header-right">
       <div class="logo-wrap">
         <img class="infinix-logo" src="./INFINIX LOGO.png" alt="Infinix" loading="eager" decoding="async">
       </div>
+    </div>
+
+    <!-- RIGHT SIDE: NOTE60 Pro (big) + hint -->
+    <div class="header-right">
+      <div class="product"><span>NOTE60 Pro</span></div>
       <div class="header-hint">scroll inside the mechanics</div>
     </div>
   </div>
