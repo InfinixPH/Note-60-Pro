@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Infinix NOTE60Pro – You Do Note</title>
+<title>Infinix NOTE60 Pro – You Do Note</title>
 
 <!-- HK MODULAR -->
 <link href="https://fonts.cdnfonts.com/css/hk-modular" rel="stylesheet">
-<!-- MOONTIME -->
+<!-- MOONTIME (kept for any residual use, though not needed now) -->
 <link href="https://db.onlinewebfonts.com/c/657bc16f9d9e1138aedc238e69ff1983?family=MoonTime" rel="stylesheet">
 
 <style>
@@ -113,29 +113,29 @@ header{
   gap:14px;
 }
 
-/* Left side: Infinix NOTE60Pro */
+/* Left side: Infinix NOTE60 Pro (bigger, aligned) */
 .header-left{
   display:flex;
   flex-direction:column;
   line-height:1;
 }
 .brand{
-  font-size:13px;
-  letter-spacing:1px;
-  opacity:.75;
+  /* "Infinix" is now replaced by logo on right, so we remove text */
+  display:none;
 }
 .product{
   margin-top:4px;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  font-size:26px;
+  font-size:32px;        /* bigger than before */
   font-weight:900;
   letter-spacing:.6px;
+  line-height:1.1;
 }
 .product span{
   font-weight:900;
 }
 
-/* Right side: You Do Note + hint (small) */
+/* Right side: INFINIX LOGO (white) + optional small hint */
 .header-right{
   display:flex;
   flex-direction:column;
@@ -143,12 +143,20 @@ header{
   text-align:right;
   line-height:1;
 }
-.header-tag{
-  font-family:'MoonTime', cursive;
-  font-size:34px;
-  color:var(--accent2);
-  text-shadow:0 0 18px rgba(255,140,0,0.18);
+
+/* Logo container */
+.logo-wrap {
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:4px; /* fine-tune vertical alignment with NOTE60 Pro */
 }
+.infinix-logo {
+  height:38px;           /* matches visual weight with 32px text */
+  width:auto;
+  filter: brightness(0) invert(1); /* turns black PNG into white */
+  image-rendering: crisp-edges; /* keep edges sharp */
+}
+
 .header-hint{
   margin-top:6px;
   font-size:10px;
@@ -254,9 +262,9 @@ MOBILE
 ========================= */
 @media (max-width:520px){
   .header-bar{ padding:12px 12px 10px; }
-  .brand{ font-size:12px; }
-  .product{ font-size:22px; }
-  .header-tag{ font-size:28px; }
+  .brand{ display:none; }
+  .product{ font-size:26px; } /* slightly smaller but still bigger than before */
+  .infinix-logo { height:30px; }
   .header-hint{ font-size:9px; margin-top:5px; }
   main{ padding:10px 12px 12px; }
 }
@@ -272,13 +280,17 @@ MOBILE
 
 <header>
   <div class="header-bar">
+    <!-- Left side: NOTE60 Pro (bigger, "Infinix" removed) -->
     <div class="header-left">
-      <div class="brand">Infinix</div>
-      <div class="product"><span>NOTE60Pro</span></div>
+      <!-- .brand (Infinix text) is hidden via display:none -->
+      <div class="product"><span>NOTE60 Pro</span></div>
     </div>
 
+    <!-- Right side: Infinix logo (white) + hint -->
     <div class="header-right">
-      <div class="header-tag">You Do Note</div>
+      <div class="logo-wrap">
+        <img class="infinix-logo" src="./INFINIX LOGO.png" alt="Infinix" loading="eager" decoding="async">
+      </div>
       <div class="header-hint">scroll inside the mechanics</div>
     </div>
   </div>
@@ -288,19 +300,14 @@ MOBILE
   <div class="wrap">
     <section class="poster-card">
       <div class="poster-scroll">
-        <img class="poster-img" src="./FULLMECHANICS.png" alt="Infinix NOTE60Pro Mechanics" usemap="#retail-map" loading="eager" decoding="async">
-        
-        <!-- Clickable map overlay for the retail stores section -->
-        <map name="retail-map">
-          <area shape="rect" coords="190,810,840,890" href="https://docs.google.com/spreadsheets/d/17UxQgolH_DI43Lz1tN6ThTgRVI48D9XE/edit?usp=sharing&ouid=115204179577557399580&rtpof=true&sd=true" target="_blank" alt="Nationwide Retail Stores List" title="Click to view Retail Store List">
-        </map>
+        <img class="poster-img" src="./FULLMECHANICS.png" alt="Infinix NOTE60 Pro Mechanics" loading="eager" decoding="async">
       </div>
     </section>
   </div>
 </main>
 
 <footer>
-  <div class="footer-wrap">© Infinix Promo • NOTE60Pro Campaign</div>
+  <div class="footer-wrap">© Infinix Promo • NOTE60 Pro Campaign</div>
 </footer>
 
 </div>
