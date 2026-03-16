@@ -113,7 +113,7 @@ header{
   gap:14px;
 }
 
-/* LEFT SIDE: Infinix logo (2X BIGGER - 96px) */
+/* LEFT SIDE: Infinix logo (BIG) */
 .header-left{
   display:flex;
   flex-direction:column;
@@ -124,19 +124,19 @@ header{
   display:flex;
   justify-content:flex-start;
   align-items:center;
-  height:96px;           /* 2X bigger than previous 48px */
+  height:48px;           /* increased height for bigger logo */
   margin-bottom:0;
 }
 
 .infinix-logo {
-  height:96px;            /* 2X BIGGER - increased from 48px to 96px */
+  height:48px;            /* BIG logo - increased from 42px to 48px */
   width:auto;
   filter: brightness(0) invert(1); /* turns black PNG into white */
   image-rendering: crisp-edges;
   display:block;
 }
 
-/* RIGHT SIDE: NOTE60 Pro (smaller now) */
+/* RIGHT SIDE: NOTE60 Pro (now on right) */
 .header-right{
   display:flex;
   flex-direction:column;
@@ -147,13 +147,13 @@ header{
 
 .product{
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  font-size:24px;        /* smaller than before (was 36px) */
+  font-size:36px;        /* even BIGGER to match logo presence */
   font-weight:900;
   letter-spacing:.6px;
   line-height:1.1;
   white-space:nowrap;
   color: #fff;
-  text-shadow: 0 0 8px rgba(255,106,0,0.3);
+  text-shadow: 0 0 10px rgba(255,106,0,0.3);
 }
 .product span{
   font-weight:900;
@@ -265,10 +265,10 @@ MOBILE
 @media (max-width:520px){
   .header-bar{ padding:12px 12px 10px; }
   
-  .logo-wrap { height:64px; }  /* scaled down for mobile but still proportionally large */
-  .infinix-logo { height:64px; }
+  .logo-wrap { height:38px; }
+  .infinix-logo { height:38px; }
   
-  .product{ font-size:20px; }  /* smaller on mobile */
+  .product{ font-size:28px; }
   .header-hint{ font-size:9px; margin-top:5px; }
   main{ padding:10px 12px 12px; }
 }
@@ -284,14 +284,14 @@ MOBILE
 
 <header>
   <div class="header-bar">
-    <!-- LEFT SIDE: Infinix logo (2X BIGGER - 96px) -->
+    <!-- LEFT SIDE: Infinix logo (BIG) -->
     <div class="header-left">
       <div class="logo-wrap">
         <img class="infinix-logo" src="./INFINIX LOGO.png" alt="Infinix" loading="eager" decoding="async">
       </div>
     </div>
 
-    <!-- RIGHT SIDE: NOTE60 Pro (smaller now - 24px) + hint -->
+    <!-- RIGHT SIDE: NOTE60 Pro (big) + hint -->
     <div class="header-right">
       <div class="product"><span>NOTE60 Pro</span></div>
       <div class="header-hint">scroll inside the mechanics</div>
