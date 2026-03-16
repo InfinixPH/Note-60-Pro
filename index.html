@@ -1,11 +1,15 @@
 <!doctype html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Infinix NOTE60Pro – You Do Note</title>
 
+<!-- HK MODULAR -->
+
 <link href="https://fonts.cdnfonts.com/css/hk-modular" rel="stylesheet">
+<!-- MOONTIME -->
 <link href="https://db.onlinewebfonts.com/c/657bc16f9d9e1138aedc238e69ff1983?family=MoonTime" rel="stylesheet">
 
 <style>
@@ -28,8 +32,9 @@ body{
   background:#000;
 }
 
-/* BACKGROUND */
-
+/* =========================
+SOLAR / ORANGE LAUNCH BACKGROUND
+========================= */
 .bg{
   position:fixed;
   inset:-25%;
@@ -39,38 +44,54 @@ body{
     radial-gradient(980px 680px at 20% 18%, rgba(255,140,0,0.34), transparent 60%),
     radial-gradient(820px 720px at 55% 92%, rgba(255,90,0,0.22), transparent 65%),
     linear-gradient(180deg,#0b0705,#050505,#000);
+  filter:saturate(1.15) contrast(1.05);
   animation:bgFloat 12s ease-in-out infinite alternate;
 }
-
 @keyframes bgFloat{
   0%{ transform:translate3d(-1.2%, -1%, 0) scale(1.03); }
   100%{ transform:translate3d(1.2%, 1%, 0) scale(1.08); }
 }
 
+/* Subtle grain */
 .grain{
   position:fixed;
   inset:0;
   z-index:-2;
   pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
   opacity:0.07;
+  mix-blend-mode:overlay;
 }
 
+/* particles */
 .particles{
   position:fixed;
   inset:0;
   z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255,170,90,0.12) 0 2px, transparent 3px),
+    radial-gradient(circle at 35% 70%, rgba(255,170,90,0.10) 0 2px, transparent 3px),
+    radial-gradient(circle at 62% 35%, rgba(255,210,150,0.10) 0 2px, transparent 3px),
+    radial-gradient(circle at 86% 60%, rgba(255,170,90,0.10) 0 2px, transparent 3px);
+  background-size:520px 520px;
+  animation:particleDrift 18s linear infinite;
+  opacity:.55;
+}
+@keyframes particleDrift{
+  0%{ background-position:0 0; }
+  100%{ background-position:520px 520px; }
 }
 
 /* APP */
-
 .app{
   height:100vh;
+  height:100dvh;
   display:flex;
   flex-direction:column;
 }
 
 /* HEADER */
-
 header{
   position:sticky;
   top:0;
@@ -87,26 +108,35 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:flex-end;
+  gap:14px;
 }
 
+.header-left{
+  display:flex;
+  flex-direction:column;
+  line-height:1;
+}
 .brand{
   font-size:13px;
   letter-spacing:1px;
   opacity:.75;
 }
-
 .product{
   margin-top:4px;
   font-size:26px;
   font-weight:900;
 }
 
+.header-right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+}
 .header-tag{
   font-family:'MoonTime', cursive;
   font-size:34px;
   color:var(--accent2);
 }
-
 .header-hint{
   margin-top:6px;
   font-size:10px;
@@ -114,9 +144,8 @@ header{
 }
 
 /* MAIN */
-
 main{
-  flex:1;
+  flex:1 1 auto;
   display:flex;
   justify-content:center;
   padding:12px 16px 16px;
@@ -130,127 +159,127 @@ main{
 }
 
 /* POSTER CARD */
-
 .poster-card{
-  flex:1;
+  flex:1 1 auto;
   border-radius:var(--radius);
   overflow:hidden;
   background:var(--glass);
   border:1px solid var(--border);
   box-shadow:var(--shadow);
   backdrop-filter: blur(16px);
+  position:relative;
 }
 
 .poster-scroll{
   height:100%;
   overflow-y:auto;
+  overflow-x:hidden;
   background:#000;
 }
 
+/* IMAGE */
 .poster-img{
   width:100%;
   height:auto;
   display:block;
 }
 
-/* IMAGE WRAPPER FOR CLICKABLE LINK */
-
+/* ===== ADDED FOR CLICKABLE LINK ===== */
 .poster-image-wrapper{
   position:relative;
 }
 
-/* CLICKABLE LINK AREA */
-
 .retail-link{
   position:absolute;
-
-  /* Adjust if needed */
-  bottom:80px;
-  left:110px;
-  width:600px;
+  bottom:90px;
+  left:120px;
+  width:520px;
   height:80px;
-
   cursor:pointer;
 }
-
-.retail-link:hover{
-  outline:2px solid rgba(255,255,255,0.3);
-}
+/* =================================== */
 
 /* FOOTER */
-
 footer{
   border-top:1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(18px);
   background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.55));
 }
-
 .footer-wrap{
   max-width:980px;
   margin:0 auto;
-  padding:10px;
+  padding:10px 16px 12px;
   text-align:center;
   font-size:12px;
   opacity:.72;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="bg"></div>
+<div class="grain"></div>
+<div class="particles"></div>
 
 <div class="app">
 
 <header>
   <div class="header-bar">
-    <div>
-      <div class="brand">Infinix</div>
-      <div class="product">NOTE60Pro</div>
-    </div>
 
-    <div style="text-align:right">
-      <div class="header-tag">You Do Note</div>
-      <div class="header-hint">scroll inside the mechanics</div>
-    </div>
+```
+<div class="header-left">
+  <div class="brand">Infinix</div>
+  <div class="product">NOTE60Pro</div>
+</div>
+
+<div class="header-right">
+  <div class="header-tag">You Do Note</div>
+  <div class="header-hint">scroll inside the mechanics</div>
+</div>
+```
+
   </div>
 </header>
 
 <main>
   <div class="wrap">
 
-    <section class="poster-card">
+```
+<section class="poster-card">
 
-      <div class="poster-scroll">
+  <div class="poster-scroll">
 
-        <div class="poster-image-wrapper">
+    <!-- WRAPPER ADDED -->
+    <div class="poster-image-wrapper">
 
-          <img class="poster-img"
-          src="./FULLMECHANICS.png"
-          alt="Infinix NOTE60Pro Mechanics">
+      <img class="poster-img"
+      src="./FULLMECHANICS.png"
+      alt="Infinix NOTE60Pro Mechanics"
+      loading="eager"
+      decoding="async">
 
-          <!-- CLICKABLE AREA -->
-          <a class="retail-link"
-          href="https://docs.google.com/spreadsheets/d/17UxQgoIH_DI43Lz1tN6ThTgRVI48D9XE/edit?usp=sharing"
-          target="_blank"></a>
+      <!-- CLICKABLE AREA -->
+      <a class="retail-link"
+      href="https://docs.google.com/spreadsheets/d/17UxQgoIH_DI43Lz1tN6ThTgRVI48D9XE/edit?usp=sharing"
+      target="_blank"></a>
 
-        </div>
+    </div>
 
-      </div>
+  </div>
 
-    </section>
+</section>
+```
 
   </div>
 </main>
 
 <footer>
-  <div class="footer-wrap">
-  © Infinix Promo • NOTE60Pro Campaign
-  </div>
+  <div class="footer-wrap">© Infinix Promo • NOTE60Pro Campaign</div>
 </footer>
 
 </div>
-
 </body>
 </html>
