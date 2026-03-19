@@ -1,318 +1,346 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Infinix NOTE60 Pro – You Do Note</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Infinix NOTE60 Pro – refined</title>
 
-<!-- HK MODULAR -->
-<link href="https://fonts.cdnfonts.com/css/hk-modular" rel="stylesheet">
-<!-- MOONTIME (kept for any residual use, though not needed now) -->
-<link href="https://db.onlinewebfonts.com/c/657bc16f9d9e1138aedc238e69ff1983?family=MoonTime" rel="stylesheet">
+  <!-- HK MODULAR (optional) -->
+  <link href="https://fonts.cdnfonts.com/css/hk-modular" rel="stylesheet">
 
-<style>
-:root{
-  --accent:#ff6a00;
-  --accent2:#ff9b3d;
-  --glass:rgba(255,255,255,0.06);
-  --border:rgba(255,255,255,0.16);
-  --radius:24px;
-  --shadow:0 30px 100px rgba(0,0,0,0.85);
-}
+  <style>
+    /* ----- RESET / VARIABLES ----- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
+    :root {
+      --accent: #ff6a00;
+      --accent2: #ff9b3d;
+      --glass: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.16);
+      --radius: 24px;
+      --shadow: 0 30px 100px rgba(0, 0, 0, 0.85);
+    }
 
-body{
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:#fff;
-  overflow:hidden; /* keep page fixed; scroll happens inside poster */
-  background:#000;
-}
+    html, body {
+      height: 100%;
+      background: #000;
+    }
 
-/* =========================
-SOLAR / ORANGE LAUNCH BACKGROUND
-========================= */
-.bg{
-  position:fixed;
-  inset:-25%;
-  z-index:-3;
-  background:
-    radial-gradient(980px 620px at 78% 12%, rgba(255,220,140,0.42), transparent 62%),
-    radial-gradient(980px 680px at 20% 18%, rgba(255,140,0,0.34), transparent 60%),
-    radial-gradient(820px 720px at 55% 92%, rgba(255,90,0,0.22), transparent 65%),
-    linear-gradient(180deg,#0b0705,#050505,#000);
-  filter:saturate(1.15) contrast(1.05);
-  animation:bgFloat 12s ease-in-out infinite alternate;
-}
-@keyframes bgFloat{
-  0%{ transform:translate3d(-1.2%, -1%, 0) scale(1.03); }
-  100%{ transform:translate3d(1.2%, 1%, 0) scale(1.08); }
-}
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #fff;
+      overflow: hidden;           /* page fixed, scroll inside poster */
+    }
 
-/* Subtle grain */
-.grain{
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
-  opacity:0.07;
-  mix-blend-mode:overlay;
-}
+    /* ----- DYNAMIC ORANGE / SOLAR BG (unchanged) ----- */
+    .bg {
+      position: fixed;
+      inset: -25%;
+      z-index: -3;
+      background:
+        radial-gradient(980px 620px at 78% 12%, rgba(255,220,140,0.42), transparent 62%),
+        radial-gradient(980px 680px at 20% 18%, rgba(255,140,0,0.34), transparent 60%),
+        radial-gradient(820px 720px at 55% 92%, rgba(255,90,0,0.22), transparent 65%),
+        linear-gradient(180deg,#0b0705,#050505,#000);
+      filter: saturate(1.15) contrast(1.05);
+      animation: bgFloat 12s ease-in-out infinite alternate;
+    }
 
-/* (Optional) light particles — kept subtle */
-.particles{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 10% 20%, rgba(255,170,90,0.12) 0 2px, transparent 3px),
-    radial-gradient(circle at 35% 70%, rgba(255,170,90,0.10) 0 2px, transparent 3px),
-    radial-gradient(circle at 62% 35%, rgba(255,210,150,0.10) 0 2px, transparent 3px),
-    radial-gradient(circle at 86% 60%, rgba(255,170,90,0.10) 0 2px, transparent 3px);
-  background-size:520px 520px;
-  animation:particleDrift 18s linear infinite;
-  opacity:.55;
-}
-@keyframes particleDrift{
-  0%{ background-position:0 0; }
-  100%{ background-position:520px 520px; }
-}
+    @keyframes bgFloat {
+      0% { transform: translate3d(-1.2%, -1%, 0) scale(1.03); }
+      100% { transform: translate3d(1.2%, 1%, 0) scale(1.08); }
+    }
 
-/* =========================
-APP LAYOUT
-========================= */
-.app{
-  height:100vh;
-  height:100dvh;
-  display:flex;
-  flex-direction:column;
-}
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      opacity: 0.07;
+      mix-blend-mode: overlay;
+    }
 
-/* =========================
-HEADER (COMPACT LEFT/RIGHT)
-========================= */
-header{
-  position:sticky;
-  top:0;
-  z-index:30;
-  backdrop-filter: blur(18px);
-  background: linear-gradient(to bottom, rgba(0,0,0,0.88), rgba(0,0,0,0.55));
-  border-bottom:1px solid rgba(255,255,255,0.08);
-}
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255,170,90,0.12) 0 2px, transparent 3px),
+        radial-gradient(circle at 35% 70%, rgba(255,170,90,0.10) 0 2px, transparent 3px),
+        radial-gradient(circle at 62% 35%, rgba(255,210,150,0.10) 0 2px, transparent 3px),
+        radial-gradient(circle at 86% 60%, rgba(255,170,90,0.10) 0 2px, transparent 3px);
+      background-size: 520px 520px;
+      animation: particleDrift 18s linear infinite;
+      opacity: 0.55;
+    }
 
-.header-bar{
-  max-width:980px;
-  margin:0 auto;
-  padding:14px 16px 12px;
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  gap:14px;
-}
+    @keyframes particleDrift {
+      0% { background-position: 0 0; }
+      100% { background-position: 520px 520px; }
+    }
 
-/* LEFT SIDE: Infinix logo (BIG) */
-.header-left{
-  display:flex;
-  flex-direction:column;
-  line-height:1;
-}
+    /* ----- APP LAYOUT ----- */
+    .app {
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
 
-.logo-wrap {
-  display:flex;
-  justify-content:flex-start;
-  align-items:center;
-  height:48px;           /* increased height for bigger logo */
-  margin-bottom:0;
-}
+    /* ----- HEADER (balanced sizes) ----- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.88), rgba(0,0,0,0.55));
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
 
-.infinix-logo {
-  height:48px;            /* BIG logo - increased from 42px to 48px */
-  width:auto;
-  filter: brightness(0) invert(1); /* turns black PNG into white */
-  image-rendering: crisp-edges;
-  display:block;
-}
+    .header-bar {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 12px 16px 10px;        /* slightly reduced vertical */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;            /* vertical center (better for smaller logos) */
+      gap: 12px;
+    }
 
-/* RIGHT SIDE: NOTE60 Pro (now on right) */
-.header-right{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  text-align:right;
-  line-height:1;
-}
+    /* LEFT SIDE: smaller logo, more proportional */
+    .header-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-.product{
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  font-size:36px;        /* even BIGGER to match logo presence */
-  font-weight:900;
-  letter-spacing:.6px;
-  line-height:1.1;
-  white-space:nowrap;
-  color: #fff;
-  text-shadow: 0 0 10px rgba(255,106,0,0.3);
-}
-.product span{
-  font-weight:900;
-}
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      height: 32px;                   /* REDUCED from 48px → 32px (better scale) */
+    }
 
-.header-hint{
-  margin-top:8px;
-  font-size:10px;
-  opacity:.6;
-  letter-spacing:.2px;
-  text-transform:none;
-}
+    .infinix-logo {
+      height: 32px;                   /* logo shrinks to fit nicely */
+      width: auto;
+      filter: brightness(0) invert(1); /* white version */
+      display: block;
+      image-rendering: crisp-edges;
+    }
 
-/* =========================
-MAIN
-========================= */
-main{
-  flex:1 1 auto;
-  min-height:0;
-  display:flex;
-  justify-content:center;
-  padding:12px 16px 16px;
-}
+    /* RIGHT SIDE: smaller product name (still bold) */
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      line-height: 1.2;
+    }
 
-.wrap{
-  width:100%;
-  max-width:980px;
-  min-height:0;
-  display:flex;
-  flex-direction:column;
-}
+    .product {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      font-size: 26px;                /* REDUCED from 36px → 26px (clean) */
+      font-weight: 800;               /* bold but not excessive */
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      color: #fff;
+      text-shadow: 0 0 8px rgba(255,106,0,0.3);
+    }
 
-/* =========================
-POSTER CARD
-========================= */
-.poster-card{
-  flex:1 1 auto;
-  min-height:0;
-  border-radius:var(--radius);
-  overflow:hidden;
-  background:var(--glass);
-  border:1px solid var(--border);
-  box-shadow:var(--shadow);
-  backdrop-filter: blur(16px);
-  position:relative;
-}
+    .product span {
+      font-weight: 800;
+    }
 
-/* Inner glow ring */
-.poster-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  pointer-events:none;
-  box-shadow:
-    inset 0 0 0 1px rgba(255,140,60,0.18),
-    inset 0 0 50px rgba(255,120,0,0.08);
-}
+    .header-hint {
+      margin-top: 4px;
+      font-size: 10px;
+      opacity: 0.55;
+      letter-spacing: 0.2px;
+      text-transform: none;
+      white-space: nowrap;
+    }
 
-/* =========================
-SCROLL AREA (VISIBLE BAR)
-========================= */
-.poster-scroll{
-  height:100%;
-  overflow-y:auto;
-  overflow-x:hidden;
-  background:#000;
+    /* ----- MAIN (poster area) ----- */
+    main {
+      flex: 1 1 auto;
+      min-height: 0;
+      display: flex;
+      justify-content: center;
+      padding: 10px 16px 14px;
+    }
 
-  scrollbar-width:thin;
-  scrollbar-color: var(--accent) #111;
-}
+    .wrap {
+      width: 100%;
+      max-width: 980px;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
 
-.poster-scroll::-webkit-scrollbar{ width:10px; }
-.poster-scroll::-webkit-scrollbar-track{ background:#111; }
-.poster-scroll::-webkit-scrollbar-thumb{
-  background:linear-gradient(180deg, var(--accent), var(--accent2));
-  border-radius:10px;
-}
-.poster-scroll::-webkit-scrollbar-thumb:hover{
-  background:linear-gradient(180deg, #ff7a12, #ffb05a);
-}
+    .poster-card {
+      flex: 1 1 auto;
+      min-height: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      position: relative;
+    }
 
-.poster-img{
-  width:100%;
-  height:auto;
-  display:block;
-}
+    .poster-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      box-shadow:
+        inset 0 0 0 1px rgba(255,140,60,0.18),
+        inset 0 0 50px rgba(255,120,0,0.08);
+    }
 
-/* =========================
-FOOTER
-========================= */
-footer{
-  border-top:1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(18px);
-  background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.55));
-}
-.footer-wrap{
-  max-width:980px;
-  margin:0 auto;
-  padding:10px 16px 12px;
-  text-align:center;
-  font-size:12px;
-  opacity:.72;
-}
+    /* scrollable area (visible bar) */
+    .poster-scroll {
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: #000;
 
-/* =========================
-MOBILE
-========================= */
-@media (max-width:520px){
-  .header-bar{ padding:12px 12px 10px; }
-  
-  .logo-wrap { height:38px; }
-  .infinix-logo { height:38px; }
-  
-  .product{ font-size:28px; }
-  .header-hint{ font-size:9px; margin-top:5px; }
-  main{ padding:10px 12px 12px; }
-}
-</style>
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) #111;
+    }
+
+    .poster-scroll::-webkit-scrollbar {
+      width: 10px;
+    }
+    .poster-scroll::-webkit-scrollbar-track {
+      background: #111;
+    }
+    .poster-scroll::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+      border-radius: 10px;
+    }
+    .poster-scroll::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #ff7a12, #ffb05a);
+    }
+
+    .poster-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ----- FOOTER (tiny) ----- */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.55));
+    }
+
+    .footer-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 9px 16px 11px;
+      text-align: center;
+      font-size: 11.5px;
+      opacity: 0.7;
+    }
+
+    /* ----- MOBILE-FIRST ADJUSTMENTS (for smaller screens) ----- */
+    @media (max-width: 520px) {
+      .header-bar {
+        padding: 10px 12px 8px;
+        gap: 8px;
+      }
+
+      /* shrink further on very small screens */
+      .logo-wrap {
+        height: 28px;
+      }
+      .infinix-logo {
+        height: 28px;
+      }
+
+      .product {
+        font-size: 22px;        /* even smaller but still visible */
+        letter-spacing: 0.2px;
+      }
+
+      .header-hint {
+        font-size: 8px;
+        margin-top: 2px;
+        opacity: 0.5;
+      }
+
+      main {
+        padding: 8px 12px 12px;
+      }
+
+      .footer-wrap {
+        font-size: 10px;
+        padding: 7px 12px 9px;
+      }
+    }
+
+    /* extra small devices (under 380) */
+    @media (max-width: 380px) {
+      .product {
+        font-size: 19px;
+      }
+      .header-hint {
+        font-size: 7px;
+      }
+      .logo-wrap {
+        height: 24px;
+      }
+      .infinix-logo {
+        height: 24px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-<div class="bg"></div>
-<div class="grain"></div>
-<div class="particles"></div>
+  <div class="bg"></div>
+  <div class="grain"></div>
+  <div class="particles"></div>
 
-<div class="app">
+  <div class="app">
+    <header>
+      <div class="header-bar">
+        <!-- LEFT: smaller logo (now balanced) -->
+        <div class="header-left">
+          <div class="logo-wrap">
+            <img class="infinix-logo" src="./INFINIX LOGO.png" alt="Infinix" loading="eager" decoding="async">
+          </div>
+        </div>
 
-<header>
-  <div class="header-bar">
-    <!-- LEFT SIDE: Infinix logo (BIG) -->
-    <div class="header-left">
-      <div class="logo-wrap">
-        <img class="infinix-logo" src="./INFINIX LOGO.png" alt="Infinix" loading="eager" decoding="async">
+        <!-- RIGHT: refined NOTE60 Pro with hint -->
+        <div class="header-right">
+          <div class="product"><span>NOTE60 Pro</span></div>
+          <div class="header-hint">scroll inside the mechanics</div>
+        </div>
       </div>
-    </div>
+    </header>
 
-    <!-- RIGHT SIDE: NOTE60 Pro (big) + hint -->
-    <div class="header-right">
-      <div class="product"><span>NOTE60 Pro</span></div>
-      <div class="header-hint">scroll inside the mechanics</div>
-    </div>
-  </div>
-</header>
-
-<main>
-  <div class="wrap">
-    <section class="poster-card">
-      <div class="poster-scroll">
-        <img class="poster-img" src="./FULLMECHANICS.png" alt="Infinix NOTE60 Pro Mechanics" loading="eager" decoding="async">
+    <main>
+      <div class="wrap">
+        <section class="poster-card">
+          <div class="poster-scroll">
+            <img class="poster-img" src="./FULLMECHANICS.png" alt="Infinix NOTE60 Pro Mechanics" loading="eager" decoding="async">
+          </div>
+        </section>
       </div>
-    </section>
+    </main>
+
+    <footer>
+      <div class="footer-wrap">© Infinix Promo • NOTE60 Pro Campaign</div>
+    </footer>
   </div>
-</main>
-
-<footer>
-  <div class="footer-wrap">© Infinix Promo • NOTE60 Pro Campaign</div>
-</footer>
-
-</div>
 </body>
 </html>
