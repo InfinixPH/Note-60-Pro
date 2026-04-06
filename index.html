@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Infinix NOTE60 Pro – refined</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <title>Infinix NOTE60 Pro – refined countdown</title>
 
   <!-- HK MODULAR (optional) -->
   <link href="https://fonts.cdnfonts.com/css/hk-modular" rel="stylesheet">
 
   <style>
-    /* ----- RESET / VARIABLES ----- */
+    /* ----- RESET / VARIABLES (fully preserved original aesthetic) ----- */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -33,7 +33,7 @@
     body {
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       color: #fff;
-      overflow: hidden;           /* page fixed, scroll inside poster */
+      overflow: hidden;
     }
 
     /* ----- DYNAMIC ORANGE / SOLAR BG (unchanged) ----- */
@@ -93,27 +93,26 @@
       flex-direction: column;
     }
 
-    /* ----- HEADER (balanced sizes) ----- */
+    /* ----- HEADER WITH TIMER (redesigned) ----- */
     header {
       position: sticky;
       top: 0;
       z-index: 30;
       backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom, rgba(0,0,0,0.88), rgba(0,0,0,0.55));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.92), rgba(0,0,0,0.7));
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .header-bar {
+    .header-top {
       max-width: 980px;
       margin: 0 auto;
-      padding: 12px 16px 10px;        /* slightly reduced vertical */
+      padding: 10px 16px 8px;
       display: flex;
       justify-content: space-between;
-      align-items: center;            /* vertical center (better for smaller logos) */
+      align-items: center;
       gap: 12px;
     }
 
-    /* LEFT SIDE: smaller logo, more proportional */
     .header-left {
       display: flex;
       flex-direction: column;
@@ -123,18 +122,17 @@
     .logo-wrap {
       display: flex;
       align-items: center;
-      height: 32px;                   /* REDUCED from 48px → 32px (better scale) */
+      height: 32px;
     }
 
     .infinix-logo {
-      height: 32px;                   /* logo shrinks to fit nicely */
+      height: 32px;
       width: auto;
-      filter: brightness(0) invert(1); /* white version */
+      filter: brightness(0) invert(1);
       display: block;
       image-rendering: crisp-edges;
     }
 
-    /* RIGHT SIDE: smaller product name (still bold) */
     .header-right {
       display: flex;
       flex-direction: column;
@@ -144,8 +142,8 @@
 
     .product {
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      font-size: 26px;                /* REDUCED from 36px → 26px (clean) */
-      font-weight: 800;               /* bold but not excessive */
+      font-size: 26px;
+      font-weight: 800;
       letter-spacing: 0.3px;
       white-space: nowrap;
       color: #fff;
@@ -165,7 +163,141 @@
       white-space: nowrap;
     }
 
-    /* ----- MAIN (poster area) ----- */
+    /* ----- COUNTDOWN TIMER IN HEADER (compact, elegant) ----- */
+    .timer-header {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 6px 16px 10px;
+      border-top: 1px solid rgba(255,110,0,0.2);
+      background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2));
+    }
+
+    .timer-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .preorder-label {
+      font-family: 'HK Modular', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      background: linear-gradient(135deg, #ffcd94, #ff9b3a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      white-space: nowrap;
+    }
+
+    .timer-compact {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .timer-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 4px 10px;
+      border-radius: 40px;
+      border: 1px solid rgba(255, 120, 40, 0.35);
+      backdrop-filter: blur(4px);
+    }
+
+    .timer-number {
+      font-size: 1.3rem;
+      font-weight: 700;
+      font-family: 'HK Modular', 'Segoe UI', monospace;
+      color: #ffbc7a;
+      letter-spacing: 1px;
+    }
+
+    .timer-unit {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+      color: rgba(255, 200, 140, 0.8);
+    }
+
+    .timer-sep {
+      color: #ff9b3d;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    /* responsive adjustments for header timer */
+    @media (max-width: 680px) {
+      .timer-wrapper {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .preorder-label {
+        font-size: 0.65rem;
+      }
+      .timer-item {
+        padding: 3px 8px;
+      }
+      .timer-number {
+        font-size: 1.1rem;
+      }
+      .timer-unit {
+        font-size: 0.55rem;
+      }
+      .timer-compact {
+        gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .header-top {
+        padding: 8px 12px 6px;
+      }
+      .logo-wrap {
+        height: 28px;
+      }
+      .infinix-logo {
+        height: 28px;
+      }
+      .product {
+        font-size: 22px;
+      }
+      .header-hint {
+        font-size: 8px;
+        margin-top: 2px;
+      }
+      .timer-header {
+        padding: 5px 12px 8px;
+      }
+      .timer-number {
+        font-size: 1rem;
+      }
+      .timer-item {
+        padding: 2px 6px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .timer-compact {
+        gap: 0.4rem;
+      }
+      .timer-number {
+        font-size: 0.9rem;
+      }
+      .timer-unit {
+        font-size: 0.5rem;
+      }
+    }
+
+    /* ----- MAIN (poster area - clean, no timer) ----- */
     main {
       flex: 1 1 auto;
       min-height: 0;
@@ -205,15 +337,15 @@
         inset 0 0 50px rgba(255,120,0,0.08);
     }
 
-    /* scrollable area (visible bar) */
     .poster-scroll {
       height: 100%;
       overflow-y: auto;
       overflow-x: hidden;
       background: #000;
-
       scrollbar-width: thin;
       scrollbar-color: var(--accent) #111;
+      display: flex;
+      flex-direction: column;
     }
 
     .poster-scroll::-webkit-scrollbar {
@@ -226,9 +358,6 @@
       background: linear-gradient(180deg, var(--accent), var(--accent2));
       border-radius: 10px;
     }
-    .poster-scroll::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg, #ff7a12, #ffb05a);
-    }
 
     .poster-img {
       width: 100%;
@@ -236,7 +365,6 @@
       display: block;
     }
 
-    /* ----- FOOTER (tiny) ----- */
     footer {
       border-top: 1px solid rgba(255,255,255,0.08);
       backdrop-filter: blur(18px);
@@ -252,55 +380,13 @@
       opacity: 0.7;
     }
 
-    /* ----- MOBILE-FIRST ADJUSTMENTS (for smaller screens) ----- */
     @media (max-width: 520px) {
-      .header-bar {
-        padding: 10px 12px 8px;
-        gap: 8px;
-      }
-
-      /* shrink further on very small screens */
-      .logo-wrap {
-        height: 28px;
-      }
-      .infinix-logo {
-        height: 28px;
-      }
-
-      .product {
-        font-size: 22px;        /* even smaller but still visible */
-        letter-spacing: 0.2px;
-      }
-
-      .header-hint {
-        font-size: 8px;
-        margin-top: 2px;
-        opacity: 0.5;
-      }
-
       main {
         padding: 8px 12px 12px;
       }
-
       .footer-wrap {
         font-size: 10px;
         padding: 7px 12px 9px;
-      }
-    }
-
-    /* extra small devices (under 380) */
-    @media (max-width: 380px) {
-      .product {
-        font-size: 19px;
-      }
-      .header-hint {
-        font-size: 7px;
-      }
-      .logo-wrap {
-        height: 24px;
-      }
-      .infinix-logo {
-        height: 24px;
       }
     }
   </style>
@@ -312,18 +398,43 @@
 
   <div class="app">
     <header>
-      <div class="header-bar">
-        <!-- LEFT: smaller logo (now balanced) -->
+      <div class="header-top">
         <div class="header-left">
           <div class="logo-wrap">
             <img class="infinix-logo" src="./INFINIX LOGO.png" alt="Infinix" loading="eager" decoding="async">
           </div>
         </div>
-
-        <!-- RIGHT: refined NOTE60 Pro with hint -->
         <div class="header-right">
           <div class="product"><span>NOTE60 Pro</span></div>
           <div class="header-hint">scroll inside the mechanics</div>
+        </div>
+      </div>
+      
+      <!-- COUNTDOWN TIMER IN HEADER - clean, compact, real-time -->
+      <div class="timer-header">
+        <div class="timer-wrapper">
+          <span class="preorder-label">Pre-order in</span>
+          <div class="timer-compact" id="countdownTimer">
+            <div class="timer-item">
+              <span class="timer-number" id="daysValue">00</span>
+              <span class="timer-unit">D</span>
+            </div>
+            <span class="timer-sep">:</span>
+            <div class="timer-item">
+              <span class="timer-number" id="hoursValue">00</span>
+              <span class="timer-unit">H</span>
+            </div>
+            <span class="timer-sep">:</span>
+            <div class="timer-item">
+              <span class="timer-number" id="minutesValue">00</span>
+              <span class="timer-unit">M</span>
+            </div>
+            <span class="timer-sep">:</span>
+            <div class="timer-item">
+              <span class="timer-number" id="secondsValue">00</span>
+              <span class="timer-unit">S</span>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -332,6 +443,7 @@
       <div class="wrap">
         <section class="poster-card">
           <div class="poster-scroll">
+            <!-- Clean mechanics image - no timer interference -->
             <img class="poster-img" src="./FULLMECHANICS.png" alt="Infinix NOTE60 Pro Mechanics" loading="eager" decoding="async">
           </div>
         </section>
@@ -342,5 +454,74 @@
       <div class="footer-wrap">© Infinix Promo • NOTE60 Pro Campaign</div>
     </footer>
   </div>
+
+  <script>
+    (function() {
+      // ============================================================
+      // COUNTDOWN TARGET: APRIL 10, 10:00 AM (local device time)
+      // Clean real-time countdown in header - no beating, no animations
+      // ============================================================
+      
+      let targetDate = new Date();
+      const currentYear = targetDate.getFullYear();
+      let countdownDeadline = new Date(currentYear, 3, 10, 10, 0, 0); // April 10, 10:00 AM
+      
+      // If deadline already passed (e.g., after April 10 10AM), set to next year
+      if (countdownDeadline.getTime() < Date.now()) {
+        countdownDeadline = new Date(currentYear + 1, 3, 10, 10, 0, 0);
+      }
+      
+      const targetTime = countdownDeadline.getTime();
+      
+      const daysSpan = document.getElementById('daysValue');
+      const hoursSpan = document.getElementById('hoursValue');
+      const minutesSpan = document.getElementById('minutesValue');
+      const secondsSpan = document.getElementById('secondsValue');
+      const preorderLabelSpan = document.querySelector('.preorder-label');
+      
+      function formatTwoDigits(num) {
+        return num < 10 ? '0' + num : '' + num;
+      }
+      
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetTime - now;
+        
+        if (distance <= 0) {
+          daysSpan.innerText = '00';
+          hoursSpan.innerText = '00';
+          minutesSpan.innerText = '00';
+          secondsSpan.innerText = '00';
+          
+          if (preorderLabelSpan && preorderLabelSpan.innerText === 'Pre-order in') {
+            preorderLabelSpan.innerText = 'Available now';
+            preorderLabelSpan.style.background = "linear-gradient(135deg, #ffe0a3, #ffaa44)";
+            preorderLabelSpan.style.backgroundClip = "text";
+            preorderLabelSpan.style.webkitBackgroundClip = "text";
+            preorderLabelSpan.style.color = "transparent";
+          }
+          return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (86400000)) / (3600000));
+        const minutes = Math.floor((distance % 3600000) / 60000);
+        const seconds = Math.floor((distance % 60000) / 1000);
+        
+        daysSpan.innerText = formatTwoDigits(days);
+        hoursSpan.innerText = formatTwoDigits(hours);
+        minutesSpan.innerText = formatTwoDigits(minutes);
+        secondsSpan.innerText = formatTwoDigits(seconds);
+      }
+      
+      // Initial call
+      updateCountdown();
+      
+      // Real-time update every second - clean, smooth, no extra animations
+      setInterval(updateCountdown, 1000);
+      
+      console.log(`Countdown active until: ${countdownDeadline.toString()}`);
+    })();
+  </script>
 </body>
 </html>
