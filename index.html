@@ -1,9 +1,11 @@
+Here is the refined HTML document with a bolder, larger pre-order announcement that aligns with the page's design.
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-  <title>Infinix NOTE60 Pro – refined countdown</title>
+  <title>Infinix NOTE60 Pro – Pre-order Now</title>
 
   <!-- HK MODULAR (optional) -->
   <link href="https://fonts.cdnfonts.com/css/hk-modular" rel="stylesheet">
@@ -93,7 +95,7 @@
       flex-direction: column;
     }
 
-    /* ----- HEADER WITH TIMER (redesigned) ----- */
+    /* ----- HEADER WITH BOLD PRE-ORDER BANNER (aligned, larger, highlighted) ----- */
     header {
       position: sticky;
       top: 0;
@@ -163,97 +165,65 @@
       white-space: nowrap;
     }
 
-    /* ----- COUNTDOWN TIMER IN HEADER (compact, elegant) ----- */
-    .timer-header {
+    /* ----- CLEAN PRE-ORDER AREA (emphasized, bigger & bold primary text) ----- */
+    .preorder-container {
       max-width: 980px;
       margin: 0 auto;
-      padding: 6px 16px 10px;
-      border-top: 1px solid rgba(255,110,0,0.2);
-      background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2));
+      padding: 10px 16px 14px;
+      border-top: 1px solid rgba(255,110,0,0.25);
+      background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.2));
     }
 
-    .timer-wrapper {
+    .preorder-stack {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
+      gap: 8px;
     }
 
-    .preorder-label {
+    /* PRIMARY HIGHLIGHT: bigger, bolder, eye-catching */
+    .preorder-status {
       font-family: 'HK Modular', system-ui, -apple-system, 'Segoe UI', sans-serif;
-      font-weight: 500;
-      letter-spacing: 2px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      font-size: 1.45rem;
       text-transform: uppercase;
-      font-size: 0.7rem;
-      background: linear-gradient(135deg, #ffcd94, #ff9b3a);
+      background: linear-gradient(135deg, #ffe0b5, #ffa043, #ff6a00);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      white-space: nowrap;
+      text-shadow: 0 0 8px rgba(255, 106, 0, 0.3);
+      text-align: center;
     }
 
-    .timer-compact {
-      display: flex;
-      gap: 0.8rem;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .timer-item {
-      display: flex;
-      align-items: baseline;
-      gap: 0.3rem;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 4px 10px;
-      border-radius: 40px;
-      border: 1px solid rgba(255, 120, 40, 0.35);
-      backdrop-filter: blur(4px);
-    }
-
-    .timer-number {
-      font-size: 1.3rem;
-      font-weight: 700;
-      font-family: 'HK Modular', 'Segoe UI', monospace;
-      color: #ffbc7a;
-      letter-spacing: 1px;
-    }
-
-    .timer-unit {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    /* date text: subtle, clean, aligned with page font */
+    .date-simple {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
       font-weight: 500;
-      color: rgba(255, 200, 140, 0.8);
-    }
-
-    .timer-sep {
-      color: #ff9b3d;
-      font-weight: 600;
       font-size: 1rem;
+      letter-spacing: 0.3px;
+      color: rgba(255, 210, 150, 0.9);
+      background: rgba(0, 0, 0, 0.45);
+      padding: 5px 18px;
+      border-radius: 40px;
+      border: 1px solid rgba(255, 140, 60, 0.4);
+      backdrop-filter: blur(4px);
+      text-align: center;
     }
 
-    /* responsive adjustments for header timer */
+    /* responsive adjustments: maintain hierarchy on all screens */
     @media (max-width: 680px) {
-      .timer-wrapper {
-        flex-direction: column;
-        gap: 0.5rem;
+      .preorder-status {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
       }
-      .preorder-label {
-        font-size: 0.65rem;
+      .date-simple {
+        font-size: 0.85rem;
+        padding: 4px 14px;
       }
-      .timer-item {
-        padding: 3px 8px;
-      }
-      .timer-number {
-        font-size: 1.1rem;
-      }
-      .timer-unit {
-        font-size: 0.55rem;
-      }
-      .timer-compact {
-        gap: 0.5rem;
+      .preorder-container {
+        padding: 8px 16px 12px;
       }
     }
 
@@ -274,30 +244,30 @@
         font-size: 8px;
         margin-top: 2px;
       }
-      .timer-header {
-        padding: 5px 12px 8px;
-      }
-      .timer-number {
+      .preorder-status {
         font-size: 1rem;
+        letter-spacing: 1.8px;
       }
-      .timer-item {
-        padding: 2px 6px;
+      .date-simple {
+        font-size: 0.75rem;
+        padding: 3px 12px;
+      }
+      .preorder-stack {
+        gap: 6px;
       }
     }
 
     @media (max-width: 400px) {
-      .timer-compact {
-        gap: 0.4rem;
-      }
-      .timer-number {
+      .preorder-status {
         font-size: 0.9rem;
+        letter-spacing: 1.5px;
       }
-      .timer-unit {
-        font-size: 0.5rem;
+      .date-simple {
+        font-size: 0.7rem;
       }
     }
 
-    /* ----- MAIN (poster area - clean, no timer) ----- */
+    /* ----- MAIN (poster area - clean) ----- */
     main {
       flex: 1 1 auto;
       min-height: 0;
@@ -389,6 +359,15 @@
         padding: 7px 12px 9px;
       }
     }
+
+    /* subtle glow animation for extra prominence (optional but refined) */
+    @keyframes softGlowPulse {
+      0% { opacity: 0.95; text-shadow: 0 0 2px rgba(255,106,0,0.2); }
+      100% { opacity: 1; text-shadow: 0 0 12px rgba(255,106,0,0.5); }
+    }
+    .preorder-status {
+      animation: softGlowPulse 2.2s ease-in-out infinite alternate;
+    }
   </style>
 </head>
 <body>
@@ -410,31 +389,11 @@
         </div>
       </div>
       
-      <!-- COUNTDOWN TIMER IN HEADER - clean, compact, real-time -->
-      <div class="timer-header">
-        <div class="timer-wrapper">
-          <span class="preorder-label">Pre-order in</span>
-          <div class="timer-compact" id="countdownTimer">
-            <div class="timer-item">
-              <span class="timer-number" id="daysValue">00</span>
-              <span class="timer-unit">D</span>
-            </div>
-            <span class="timer-sep">:</span>
-            <div class="timer-item">
-              <span class="timer-number" id="hoursValue">00</span>
-              <span class="timer-unit">H</span>
-            </div>
-            <span class="timer-sep">:</span>
-            <div class="timer-item">
-              <span class="timer-number" id="minutesValue">00</span>
-              <span class="timer-unit">M</span>
-            </div>
-            <span class="timer-sep">:</span>
-            <div class="timer-item">
-              <span class="timer-number" id="secondsValue">00</span>
-              <span class="timer-unit">S</span>
-            </div>
-          </div>
+      <!-- BOLD & LARGER PRE-ORDER SECTION: "PRE ORDER IS NOW OPEN" as primary highlight, date below, clean no emoji -->
+      <div class="preorder-container">
+        <div class="preorder-stack">
+          <div class="preorder-status">PRE ORDER IS NOW OPEN</div>
+          <div class="date-simple">April 10 – 21, 2026</div>
         </div>
       </div>
     </header>
@@ -457,71 +416,15 @@
 
   <script>
     (function() {
-      // ============================================================
-      // COUNTDOWN TARGET: APRIL 10, 10:00 AM (local device time)
-      // Clean real-time countdown in header - no beating, no animations
-      // ============================================================
-      
-      let targetDate = new Date();
-      const currentYear = targetDate.getFullYear();
-      let countdownDeadline = new Date(currentYear, 3, 10, 10, 0, 0); // April 10, 10:00 AM
-      
-      // If deadline already passed (e.g., after April 10 10AM), set to next year
-      if (countdownDeadline.getTime() < Date.now()) {
-        countdownDeadline = new Date(currentYear + 1, 3, 10, 10, 0, 0);
+      // Ensure the date format remains exactly as requested.
+      const dateElement = document.querySelector('.date-simple');
+      if (dateElement && dateElement.innerText.trim() !== 'April 10 – 21, 2026') {
+        dateElement.innerText = 'April 10 – 21, 2026';
       }
-      
-      const targetTime = countdownDeadline.getTime();
-      
-      const daysSpan = document.getElementById('daysValue');
-      const hoursSpan = document.getElementById('hoursValue');
-      const minutesSpan = document.getElementById('minutesValue');
-      const secondsSpan = document.getElementById('secondsValue');
-      const preorderLabelSpan = document.querySelector('.preorder-label');
-      
-      function formatTwoDigits(num) {
-        return num < 10 ? '0' + num : '' + num;
-      }
-      
-      function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = targetTime - now;
-        
-        if (distance <= 0) {
-          daysSpan.innerText = '00';
-          hoursSpan.innerText = '00';
-          minutesSpan.innerText = '00';
-          secondsSpan.innerText = '00';
-          
-          if (preorderLabelSpan && preorderLabelSpan.innerText === 'Pre-order in') {
-            preorderLabelSpan.innerText = 'Available now';
-            preorderLabelSpan.style.background = "linear-gradient(135deg, #ffe0a3, #ffaa44)";
-            preorderLabelSpan.style.backgroundClip = "text";
-            preorderLabelSpan.style.webkitBackgroundClip = "text";
-            preorderLabelSpan.style.color = "transparent";
-          }
-          return;
-        }
-        
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (86400000)) / (3600000));
-        const minutes = Math.floor((distance % 3600000) / 60000);
-        const seconds = Math.floor((distance % 60000) / 1000);
-        
-        daysSpan.innerText = formatTwoDigits(days);
-        hoursSpan.innerText = formatTwoDigits(hours);
-        minutesSpan.innerText = formatTwoDigits(minutes);
-        secondsSpan.innerText = formatTwoDigits(seconds);
-      }
-      
-      // Initial call
-      updateCountdown();
-      
-      // Real-time update every second - clean, smooth, no extra animations
-      setInterval(updateCountdown, 1000);
-      
-      console.log(`Countdown active until: ${countdownDeadline.toString()}`);
+      // Confirmation log: bold pre-order banner active, aligned with page typography.
+      console.log('✅ Bold & refined: PRE ORDER IS NOW OPEN (larger + bolder) — April 10 – 21, 2026');
     })();
   </script>
 </body>
 </html>
+```
